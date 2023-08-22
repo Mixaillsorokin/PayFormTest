@@ -60,7 +60,7 @@ public class TestNGDemo {
         System.out.println("After method");
     }
     @AfterClass
-    public  void AfterClass(){
+    public  void afterClass(){
         System.out.println("After class");
     }
     @AfterTest
@@ -68,7 +68,7 @@ public class TestNGDemo {
         System.out.println("After Test");
     }
     @AfterSuite
-    public  void AfterSuite() {
+    public  void afterSuite() {
         System.out.println("After Suite");
     }
 }
