@@ -8,10 +8,9 @@ import java.util.concurrent.TimeUnit;
 
 public class TestBase {
     @BeforeMethod
-    public void setup() throws InterruptedException {
+    public void setup(){
         Driver.getDriver();
         Driver.getDriver().get(ConfigReader.getProperty("url"));
-        Thread.sleep(10000);
         Driver.getDriver().manage().window().maximize();
         Driver.getDriver().manage().timeouts().implicitlyWait(Long.valueOf(ConfigReader.getProperty("implicitwait")), TimeUnit.SECONDS);
 
