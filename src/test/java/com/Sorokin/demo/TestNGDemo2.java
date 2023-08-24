@@ -1,26 +1,23 @@
-package com.Sorokin;
+package com.Sorokin.demo;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
+import org.testng.asserts.SoftAssert;
 
 public class TestNGDemo2 {
 
     @Test(description = "Verify page title", dataProvider = "testData")
     public void test5(String url, String title) {
-        WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.get(url);
-
-
-        Assert.assertTrue(driver.getTitle().contains(title));
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(driver.getTitle().contains(title),"title not found "+title);
         driver.quit();
+
     }
 
     @DataProvider(name = "testData")
@@ -33,3 +30,6 @@ public class TestNGDemo2 {
         };
     }
 }
+
+
+

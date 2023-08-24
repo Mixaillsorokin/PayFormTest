@@ -1,8 +1,8 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="testng" >
     <test name="Test1" >
-        <packages>
-            <package name="com.Sorokin.test.*" />
-        </packages>
+        <classes>
+            <class name="com.Sorokin.test.test_NamePage" />
+        </classes>
     </test>
 </suite>

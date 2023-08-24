@@ -1,4 +1,4 @@
-package com.Sorokin;
+package com.Sorokin.demo;
 
 import org.testng.Assert;
 import org.testng.SkipException;
