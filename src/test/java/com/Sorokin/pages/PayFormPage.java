@@ -1,6 +1,8 @@
 package com.Sorokin.pages;
 
+import com.Sorokin.utilites.ConfigReader;
 import com.Sorokin.utilites.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,7 +18,7 @@ public class PayFormPage {
     public WebElement ПолеВводаИмени;
     @FindBy(xpath = "/html/body/div/div/div[2]/form/ul/li[2]/label")
     public WebElement НазваниеНомерКарты;
-    @FindBy(name = "cc_number")
+    @FindBy(xpath = "//input[@name='cc_number']")
     public WebElement ПолеВводаНомераКарты;
     @FindBy(xpath = "/html/body/div/div/div[2]/form/ul/li[3]/div[1]/label")
     public WebElement НазваниеСрокГодности;
@@ -35,15 +37,16 @@ public class PayFormPage {
     @FindBy(className = "button")
     public WebElement НазваниеКнопкаОплатить;
 
-//    public void PayFormPage(WebDriver driver) {
-//        this.driver = driver;
-//    }
+    public void PayFormPage(WebDriver driver) {
+        this.driver = driver;
+    }
 
-    public void enterName() {
-        WebElement textBox = ПолеВводаИмени;
+    public void enterName(String text) {
+        WebElement textBox = driver.findElement(By.xpath(ConfigReader.getProperty("fieldcreditcard")));
 
         if (textBox != null) {
-            textBox.sendKeys("ХУЮШКИ");
+            textBox.sendKeys(text);
+            System.out.println("Все супер");
         } else {
             System.out.println("Элемент не был найден.");
 
