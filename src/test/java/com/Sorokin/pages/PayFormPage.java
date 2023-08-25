@@ -1,5 +1,7 @@
 package com.Sorokin.pages;
 
+import com.Sorokin.utilites.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,48 +10,46 @@ import org.openqa.selenium.support.PageFactory;
 
 public class PayFormPage {
 
-    public WebDriver driver;
-    @FindBy(xpath = "/html/body/div/div/div[2]/h2")
+    WebDriver driver;
+
+    @FindBy(xpath = "//h2")
     public WebElement namePageFormPay;
+//    public By namePageFormPay = By.xpath("//h2[text()=‘Страница оплаты товара’]");
     @FindBy(xpath = "//input[@class='form__input']")
     public WebElement enterFieldName;
-    @FindBy(xpath = "/html/body/div/div/div[2]/form/ul/li[2]/label")
-    public WebElement nameNumberCard;
+//    public By enterFieldName = By.xpath("//input[@class='form__input']");
+    @FindBy(xpath = ".//label[text()='Номер карты']")
+    public WebElement nameInputFieldCreditCard;
     @FindBy(xpath = "//input[@name='cc_number']")
-    public WebElement enterFieldCreditCard;
-    @FindBy(xpath = "/html/body/div/div/div[2]/form/ul/li[3]/div[1]/label")
+    public WebElement inputFieldCreditCard;
+    @FindBy(xpath = ".//label[text()='Срок годности']")
     public WebElement NameExpirationDate;
     @FindBy(name = "cc_month")
     public WebElement inputFieldExpiryDateMonth
             ;
     @FindBy(name = "cc_year")
-    public WebElement ПолеВводаСрокГодностиГод;
-    @FindBy(xpath = "/html/body/div/div/div[2]/form/ul/li[3]/div[2]/label/text()")
-    public WebElement НазваниеПолеВводаСрокГодностиCVC;
+    public WebElement inputFieldExpirationDateYear;
+    @FindBy(xpath = "//label[contains(text(), 'CVC')]")
+    public WebElement nameInputFieldExpiryDateCVC;
     @FindBy(name = "cc_cvc")
-    public WebElement ПолеВводаСрокГодностиCVC;
-    @FindBy(xpath = "/html/body/div/div/div[2]/form/ul/li[4]/label/text()")
-    public WebElement НазваниеCheckboxСохранитьКартуДляПокупок;
+    public WebElement InputFieldExpiryDateCVC;
+    @FindBy(xpath = "&&&&&&&&&&&&&&&&&&&&&&&&22uioihrwe")
+    public WebElement nameCheckboxSaveCardForShopping;
     @FindBy(name = "save_cc")
-    public WebElement CheckboxСохранитьКартуДляПокупок;
+    public WebElement SelectCheckboxSaveCardForShopping;
     @FindBy(className = "button")
-    public WebElement НазваниеКнопкаОплатить;
+    public WebElement NameButtonPay;
 
     public PayFormPage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(this.driver, this);
+        PageFactory.initElements(driver, this);
     }
 
+    public boolean fieldNameIsDisplay() {
+        return namePageFormPay.isDisplayed();
+
+    }
     public void enterName(String text) {
-
-
-        if (this.enterFieldCreditCard != null) {
-            this.enterFieldCreditCard.sendKeys(text);
-            System.out.println("Все супер");
-        } else {
-            System.out.println("Элемент не был найден.");
-
-
-        }
+        enterFieldName.sendKeys(text);
     }
 }
