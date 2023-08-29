@@ -1,21 +1,17 @@
 package com.Sorokin.utilites;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import java.util.concurrent.TimeUnit;
 
-
 public class TestBase {
-    @BeforeMethod
+    @BeforeSuite
     public void setup(){
         Driver.getDriver();
         Driver.getDriver().manage().window().maximize();
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         Driver.getDriver().manage().timeouts().implicitlyWait(Long.valueOf(ConfigReader.getProperty("implicitwait")), TimeUnit.SECONDS);
-
-
     }
-
-    @AfterMethod
+    @AfterSuite
     public void teardown(){Driver.closeDriver();}
 }

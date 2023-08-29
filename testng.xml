@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="testng" >
-    <test name="Report PayForm" >
-        <packages>
-            <package name="com.Sorokin.tests.*" />
-        </packages>
+<suite name="testng">
+    <test name="Report Modal Window (Pay Form Page)">
+        <classes>
+            <class name="com.Sorokin.tests.modalFieldsDisplay.test_Cases_FieldsDisplayed"/>
+            <class name="com.Sorokin.tests.fieldInputName.test_Cases_FieldInputName"/>
+            <class name="com.Sorokin.tests.buttonPay.test_Cases_ButtonPay"/>
+            <class name="com.Sorokin.tests.fieldCVC.test_Cases_FieldCVCValid"/>
+            <class name="com.Sorokin.tests.fieldExpirationDate.test_Cases_FieldExpirationDate"/>
+            <class name="com.Sorokin.tests.typeCreditCardAndValidNegative.test_Cases_CheckTypeCreditCard"/>
+            <class name="com.Sorokin.tests.checkbox.test_Cases_Checkbox"/>
+        </classes>
     </test>
 </suite>
