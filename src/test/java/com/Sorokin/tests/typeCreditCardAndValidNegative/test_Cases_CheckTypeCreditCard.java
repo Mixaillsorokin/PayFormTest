@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class test_Cases_CheckTypeCreditCard extends TestBase {
     @Test(description = "Defining card and displaying icons",dataProvider = "testData1")
-    public void test_FPay_16_23_CreditCardPositive(String number, String type) {
+    public void test_FPay_16_23_CreditCardNegative(String number, String type) {
         PayFormPage pfp = new PayFormPage(Driver.getDriver());
         pfp.enterCreditCardNum(number);
         String actualType = pfp.getAttributeCC("class");
@@ -28,7 +28,7 @@ public class test_Cases_CheckTypeCreditCard extends TestBase {
         };
     }
     @Test(description = "Defining card and displaying icons",dataProvider = "testData2")
-    public void test_FPay_16_23_CreditCardNegative(String number, String type) {
+    public void test_FPay_16_23_CreditCardPositive(String number, String type) {
         PayFormPage pfp = new PayFormPage(Driver.getDriver());
         pfp.inputFieldCreditCard.clear();
         pfp.enterCreditCardNum(number);
@@ -60,12 +60,12 @@ public class test_Cases_CheckTypeCreditCard extends TestBase {
     private void test_FPay_25_InputNumberCardSpecialChar_Negative() {
         PayFormPage pfp = new PayFormPage(Driver.getDriver());
         boolean input1 = pfp.enterCreditCardNumber("1234ABCD5678");
-        Assert.assertTrue(input1, "FAIL: Card number contains special characters or letters");
+        Assert.assertFalse(input1, "FAIL: Card number contains special characters or letters");
 
     }@Test(description = "Enter invalid card number (special characters, letters, length <12 and >19)")
     private void test_FPay_25_InputNumberCardInvalidLen_Negative() {
         PayFormPage pfp = new PayFormPage(Driver.getDriver());
         boolean input2 = pfp.enterCreditCardNumber("12345678901234567890");
-        Assert.assertTrue(input2, "FAIL: The card number has an invalid length");
+        Assert.assertFalse(input2, "FAIL: The card number has an invalid length");
     }
 }

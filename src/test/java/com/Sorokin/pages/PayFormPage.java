@@ -244,17 +244,13 @@ public class PayFormPage {
 
     public boolean isCheckboxSelected() {
         return CheckboxSaveCardForShopping.isEnabled();
-
-
     }
     public boolean checkboxIsActive() {
         boolean isDisplayed = CheckboxSaveCardForShopping.isDisplayed();
         if (isDisplayed = true) {
             CheckboxSaveCardForShopping.click();
-
         }
         return true;
-
     }
 
     public boolean enterCreditCardNumber(String cardNumber) {
